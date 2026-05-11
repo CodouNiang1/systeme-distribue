@@ -14,26 +14,13 @@
 
   <artifactId>pdf-client-web-backend</artifactId>
 
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-dependencies</artifactId>
-        <version>2.7.18</version>
-        <type>pom</type>
-        <scope>import</scope>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
-
   <dependencies>
-    <!-- Spring Boot Web -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
       <version>2.7.18</version>
     </dependency>
-    <!-- CORBA -->
+    <!-- pdf-server inclut PDFBox + stubs CORBA -->
     <dependency>
       <groupId>com.pdfcorba</groupId>
       <artifactId>pdf-server</artifactId>
