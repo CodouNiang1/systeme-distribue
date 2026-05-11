@@ -1,0 +1,134 @@
+/* ── Fond général ─────────────────────────────────────────────────────────── */
+.root {
+    -fx-background-color: #F0F4FF;
+    -fx-font-family: "Segoe UI", "Helvetica Neue", sans-serif;
+    -fx-font-size: 13px;
+}
+
+/* ── Titre principal ──────────────────────────────────────────────────────── */
+.titre {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2D3A8C;
+    -fx-padding: 0 0 8 4;
+}
+
+/* ── Sous-titre de section ────────────────────────────────────────────────── */
+.label-section {
+    -fx-font-size: 13px;
+    -fx-text-fill: #5A6A8A;
+    -fx-padding: 0 0 4 0;
+}
+
+/* ── Onglets ──────────────────────────────────────────────────────────────── */
+.tab-pane {
+    -fx-background-color: transparent;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #E2E8FF;
+    -fx-background-radius: 10 10 0 0;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #D4DCF8;
+    -fx-background-radius: 8 8 0 0;
+    -fx-padding: 6 14;
+    -fx-cursor: hand;
+}
+
+.tab-pane .tab .tab-label {
+    -fx-text-fill: #4A5580;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.tab-pane .tab:selected {
+    -fx-background-color: #FFFFFF;
+}
+
+.tab-pane .tab:selected .tab-label {
+    -fx-text-fill: #2D3A8C;
+}
+
+.tab-pane .tab-content-area {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 0 0 12 12;
+    -fx-border-color: #D4DCF8;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-radius: 0 0 12 12;
+}
+
+/* ── ScrollPane ───────────────────────────────────────────────────────────── */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ── Bouton principal ─────────────────────────────────────────────────────── */
+.btn-action {
+    -fx-background-color: linear-gradient(to bottom right, #4F6BED, #2D3A8C);
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 13px;
+    -fx-padding: 10 24;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(45,58,140,0.3), 8, 0, 0, 3);
+}
+
+.btn-action:hover {
+    -fx-background-color: linear-gradient(to bottom right, #6B84F5, #3D4FAC);
+    -fx-effect: dropshadow(gaussian, rgba(45,58,140,0.5), 12, 0, 0, 4);
+}
+
+.btn-action:pressed {
+    -fx-background-color: linear-gradient(to bottom right, #3D50C0, #1E2870);
+    -fx-effect: dropshadow(gaussian, rgba(45,58,140,0.2), 4, 0, 0, 1);
+}
+
+/* ── Champs texte ─────────────────────────────────────────────────────────── */
+.text-field, .password-field {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #2D3A8C;
+    -fx-border-color: #C0CAEE;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-padding: 7 12;
+    -fx-prompt-text-fill: #A0AACB;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 4, 0, 0, 2);
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #4F6BED;
+    -fx-effect: dropshadow(gaussian, rgba(79,107,237,0.25), 8, 0, 0, 2);
+}
+
+/* ── Zone de texte ────────────────────────────────────────────────────────── */
+.text-area {
+    -fx-background-color: #FFFFFF;
+    -fx-text-fill: #2D3748;
+    -fx-border-color: #C0CAEE;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-prompt-text-fill: #A0AACB;
+}
+
+.text-area .content {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 8;
+    -fx-padding: 8 12;
+}
+
+.text-area:focused {
+    -fx-border-color: #4F6BED;
+}
+
+/* ── Labels généraux ──────────────────────────────────────────────────────── */
+.label {
+    -fx-text-fill: #2D3748;
+}

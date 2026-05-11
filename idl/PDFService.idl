@@ -1,0 +1,44 @@
+// PDFService.idl
+module PDFService {
+
+    typedef sequence<octet> ByteArray;
+
+    exception PDFException {
+        string message;
+    };
+
+    interface IPDFService {
+
+        // Fusion de deux PDFs
+        ByteArray fusionnerPDF(in ByteArray pdf1, in ByteArray pdf2)
+            raises (PDFException);
+
+        // Découpage d'un PDF (page debut à page fin)
+        ByteArray decouperPDF(in ByteArray pdf, in long debut, in long fin)
+            raises (PDFException);
+
+        // Extraction d'une page spécifique
+        ByteArray extrairePage(in ByteArray pdf, in long numPage)
+            raises (PDFException);
+
+        // Suppression d'une page
+        ByteArray supprimerPage(in ByteArray pdf, in long numPage)
+            raises (PDFException);
+
+        // Ajout d'un mot de passe
+        ByteArray ajouterMotDePasse(in ByteArray pdf, in string motDePasse)
+            raises (PDFException);
+
+        // Conversion d'une page PDF en image PNG
+        ByteArray convertirEnImage(in ByteArray pdf, in long numPage)
+            raises (PDFException);
+
+        // Extraction du texte d'un PDF
+        string extraireTexte(in ByteArray pdf)
+            raises (PDFException);
+
+        // Création d'un PDF depuis un texte
+        ByteArray creerPDF(in string contenu)
+            raises (PDFException);
+    };
+};

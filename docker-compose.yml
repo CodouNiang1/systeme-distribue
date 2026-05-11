@@ -1,0 +1,58 @@
+services:
+
+  # ── Serveur CORBA + PDFBox + NameService embarqué ────────────────────────────
+  corba-server:
+    build:
+      context: .
+      dockerfile: pdf-server/Dockerfile
+    container_name: corba-server
+    environment:
+      - corba.host=0.0.0.0
+      - corba.port=1050
+    ports:
+      - "1050:1050"
+    networks:
+      - pdf-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:1050 || exit 0"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ── Spring Boot API ──────────────────────────────────────────────────────────
+  spring-api:
+    build:
+      context: .
+      dockerfile: pdf-client-web/backend/Dockerfile
+    container_name: spring-api
+    depends_on:
+      corba-server:
+        condition: service_started
+    environment:
+      - corba.host=corba-server
+      - corba.port=1050
+      - server.port=8080
+    ports:
+      - "8080:8080"
+    networks:
+      - pdf-network
+    restart: on-failure
+
+  # ── Frontend React ───────────────────────────────────────────────────────────
+  frontend:
+    build:
+      context: pdf-client-web/frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    depends_on:
+      - spring-api
+    ports:
+      - "80:80"
+    networks:
+      - pdf-network
+    restart: unless-stopped
+
+networks:
+  pdf-network:
+    driver: bridge
