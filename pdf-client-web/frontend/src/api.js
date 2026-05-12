@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const BASE = '/api/pdf'
+const BASE = 'https://pdf-corba-backend-1.onrender.com/api/pdf'
 
 const dl = (data, filename) => {
   const url = URL.createObjectURL(new Blob([data]))
